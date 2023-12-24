@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
-import { ClerkProvider } from "@clerk/nextjs";
+import { ClerkProvider, } from "@clerk/nextjs";
 import Nav from "@/components/Nav";
+import Users from "@/components/Users";
 
 export const metadata: Metadata = {
-  title: "Spotify API AUTH",
-  description: "Spotify API AUTH Template",
+  title: "chat.",
+  description: "just chat.",
 };
 
 export default function RootLayout({
@@ -20,7 +21,10 @@ export default function RootLayout({
       <ClerkProvider>
         <body className={`{inter.className} h-full`}>
           <Nav />
-          <div className="pd-24 h-full">{children}</div>
+          <div className="h-full flex">
+          <Users />
+          {children}
+          </div>
         </body>
       </ClerkProvider>
     </html>

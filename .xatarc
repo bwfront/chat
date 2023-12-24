@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://BennetWitczak-s-workspace-uffijn.eu-central-1.xata.sh/db/chat",
+  "codegen": {
+    "output": "src/xata.ts"
+  }
+}
