@@ -15,6 +15,16 @@ const tables = [
       { name: "imageUrl", type: "string" },
     ],
   },
+  { name: "pchat", columns: [{ name: "participants", type: "multiple" }] },
+  {
+    name: "messages",
+    columns: [
+      { name: "chatid", type: "string" },
+      { name: "message", type: "string" },
+      { name: "sender", type: "string" },
+      { name: "reciver", type: "string" },
+    ],
+  },
 ] as const;
 
 export type SchemaTables = typeof tables;
@@ -23,8 +33,16 @@ export type InferredTypes = SchemaInference<SchemaTables>;
 export type Users = InferredTypes["users"];
 export type UsersRecord = Users & XataRecord;
 
+export type Pchat = InferredTypes["pchat"];
+export type PchatRecord = Pchat & XataRecord;
+
+export type Messages = InferredTypes["messages"];
+export type MessagesRecord = Messages & XataRecord;
+
 export type DatabaseSchema = {
   users: UsersRecord;
+  pchat: PchatRecord;
+  messages: MessagesRecord;
 };
 
 const DatabaseClient = buildClient();

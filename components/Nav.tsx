@@ -10,7 +10,7 @@ import {
 import { useRouter } from "next/navigation";
 
 export default function Nav() {
-  const { user, isLoaded } = useUser();
+  const { user } = useUser();
   const router = useRouter();
   function handleLogin() {
     router.push("/chat");
@@ -18,7 +18,6 @@ export default function Nav() {
   function handleHome() {
     router.push("/");
   }
-
   const username = user?.username || "user";
   return (
     <div className="h-20 flex items-center px-24 justify-between bg-white shadow-md">
@@ -34,6 +33,7 @@ export default function Nav() {
           <UserButton afterSignOutUrl="/" />
         </div>
       </SignedIn>
+
       <SignedOut>
         <SignInButton>
           <button
