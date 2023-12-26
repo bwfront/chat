@@ -24,8 +24,6 @@ export default function RealtimeMessages({loadmessages}: {loadmessages: Message[
         }
     }, [supabase, messages, setMessages])
 
-    console.log(messages)
-        
     return (
         <div className="flex flex-col gap-2 w-full">
             {messages.map((element: any) => {
