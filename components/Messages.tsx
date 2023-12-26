@@ -1,51 +1,17 @@
-"use client";
-import { XataClient, getXataClient } from "@/src/xata";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import supabase from "@/lib/supabase";
+import RealtimeMessages from "@/app/c/[chat]/realtime-message";
 
-type Message = {
-  id: string;
-  message: string;
-};
-
-export default function Messages(props: any) {
-  const xataClient = new XataClient({ enableBrowser: true, apiKey: process.env.NEXT_PUBLIC_XATA_API_KEY });
-  const [messages, setMessages] = useState<Message[]>([]);
+export default async function Messages(props: any) {
   const chatid = props.id;
-
-
-  //Chnage service
-  useEffect(() => {
-    const fetchMessages = async () => {
-      try {
-        const chatMessages = await xataClient.db.messages
-          .filter({
-            chatid: chatid,
-          })
-          .getMany();
-
-        const transformedMessages = chatMessages.map((msg) => ({
-          id: msg.id || "",
-          message: msg.message || "",
-        }));
-
-        setMessages(transformedMessages);
-      } catch (error) {
-        console.error("Failed to fetch messages:", error);
-      }
-    };
-
-    fetchMessages(); // Execute the function to fetch messages
-  }, [chatid]); // Re-run when chatid changes
+  const { data } = await supabase
+          .from("messages")
+          .select("id, message, sender, reciver, chatid")
+          .filter("chatid", "eq", chatid);
+       
+      
 
   return (
-    <div className="flex flex-col gap-2">
-      {messages.map((element: any) => {
-        return (
-          <div key={element.id}>
-            <p>{element.message}</p>
-          </div>
-        );
-      })}
-    </div>
+    <RealtimeMessages loadmessages={data ?? []} />
   );
 }
