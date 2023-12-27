@@ -4,11 +4,19 @@ import React, { useEffect, useState } from "react";
 import { FaMoon } from "react-icons/fa";
 import { BsSunFill } from "react-icons/bs";
 export default function ThemeToggle() {
-  const [darkMode, setDarkMode] = useState(false);
+  const getCurrentTheme = () =>
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const [darkMode, setDarkMode] = useState(getCurrentTheme());
+
+  const mqListener = (e: any) => {
+    setDarkMode(e.matches);
+  };
 
   useEffect(() => {
     const theme = localStorage.getItem("theme");
-    if (theme === "dark") setDarkMode(true);
+    const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+    darkThemeMq.addListener(mqListener);
+    if (theme === "dark" || darkThemeMq.matches) setDarkMode(true);
     else setDarkMode(false);
   }, []);
 
