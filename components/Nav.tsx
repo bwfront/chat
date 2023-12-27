@@ -20,7 +20,7 @@ export default function Nav() {
   }
   const username = user?.username || "user";
   return (
-    <div className="h-20 flex items-center px-24 justify-between bg-white shadow-md">
+    <div className="h-20 flex items-center px-16 justify-between bg-white shadow-md">
       <div
         className="font-bold mr-5 cursor-pointer"
         onClick={() => handleHome()}

@@ -6,7 +6,7 @@ export default function MessageForm(props: any) {
   const chat = props.m;
   const ref = useRef<HTMLFormElement>(null);
 
-  
+
   return (
     <form
       ref={ref}
@@ -14,7 +14,7 @@ export default function MessageForm(props: any) {
         await handleSubmit(formData, chat);
         ref.current?.reset();
       }}
-      className="flex w-full items-center  gap-3"
+      className="flex w-full items-center  gap-5"
     >
       <input
         className="outline-blue-200 outline flex-grow px-4 py-2 rounded-lg focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-800"

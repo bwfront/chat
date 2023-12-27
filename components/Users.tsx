@@ -23,8 +23,8 @@ export default async function Users() {
   } else {
     await supabase.from("users").update(userdata).eq("id", newUser.data![0].id);
   }
-
-  const users = await supabase.from("users").select();
+  console.log(user.id)
+  const users = await supabase.from("users").select().neq('uid', user.id);
 
   type User = {
     username: string | "username";
