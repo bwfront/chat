@@ -7,3 +7,20 @@
     background-color: rgb(186 230 253 / var(--tw-bg-opacity));
     height: calc(100vh - 80px)
 }
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+ 
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(to bottom, #3B82F6, #2563EB, #1D4ED8);
+    border-radius: 5px;
+}
+ 
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

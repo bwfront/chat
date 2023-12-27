@@ -17,7 +17,7 @@ export default function MessageForm(props: any) {
       className="flex w-full items-center  gap-5"
     >
       <input
-        className="outline-blue-200 outline flex-grow px-4 py-2 rounded-lg focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-800"
+        className="outline-blue-200 outline flex-grow px-4 py-2 rounded-lg focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-800 dark:bg-small"
         type="text"
         placeholder="message"
         name="message"

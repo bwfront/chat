@@ -6,8 +6,8 @@ import {
   UserButton,
   useUser,
 } from "@clerk/nextjs";
-
 import { useRouter } from "next/navigation";
+
 
 export default function Nav() {
   const { user } = useUser();
@@ -20,7 +20,7 @@ export default function Nav() {
   }
   const username = user?.username || "user";
   return (
-    <div className="h-20 flex items-center px-16 justify-between bg-white shadow-md">
+    <div className="h-20 flex items-center px-16 justify-between bg-white shadow-md dark:bg-dark dark:text-white" >
       <div
         className="font-bold mr-5 cursor-pointer"
         onClick={() => handleHome()}

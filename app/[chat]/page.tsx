@@ -44,7 +44,7 @@ export default async function Page({ params }: { params: { chat: string } }) {
   return (
     <div className="w-full flex justify-end flex-col">
       <RealtimeMessages userid={userId!} loadmessages={data ?? []} />
-      <div className="flex gap-5 w-full py-5 px-16 bg-white shadow-lg">
+      <div className="flex gap-5 w-full py-5 px-16 bg-white shadow-lg dark:text-white dark:bg-medium">
         <MessageForm m={props} />
       </div>
     </div>

@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ClerkProvider>
-        <body className={`{inter.className} h-full`}>
+        <body className={`{inter.className} h-full dark:text-white dark:bg-small`}>
           <Nav />
           <div className="h-full flex">
           <Users />
